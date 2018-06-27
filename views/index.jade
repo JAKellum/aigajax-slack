@@ -10,18 +10,19 @@ html
     #wrapper
       .main
         .header
-          h1
-            strong #{community}
-          h2 #{__('HEADER', community)}
+          h1 Join the conversation.
+          img(src="../images/aiga-slack.png" alt="AIGA Jacksonville + Slack")
         .content
           .information
             form(method="POST", action="/invite")#join-form.form
               input(type="email", name="email", autofocus, placeholder="#{__('ENTER_EMAIL')}")#slack-email.field
               if tokenRequired
                 input(type="text", name="token", placeholder="#{__('ENTER_TOKEN')}")#slack-token.field
-              input(type="submit", value="Join").submit
+              input(type="submit", value="Send Invite").submit
               if !!recaptchaSiteKey
                 div(class="g-recaptcha", data-sitekey="#{recaptchaSiteKey}")
+            p Having issues receiving your invite?
+              a(href="mailto:president@jacksonville.aiga.org" target="_blank") Let us know
     if !!recaptchaSiteKey
        script(src='https://www.google.com/recaptcha/api.js')
     script.
